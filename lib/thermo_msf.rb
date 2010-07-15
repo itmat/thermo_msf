@@ -1,0 +1,5 @@
+require 'zlib'
+require 'sequel'
+require 'active_support'
+require 'thermo_msf/base'
+require 'thermo_msf/zip_spectrum'

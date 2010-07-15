@@ -8,9 +8,13 @@ begin
     gem.summary = %Q{A parser for Thermo MSF files}
     gem.description = %Q{A parser for Thermo Finnegan's Proteome Discoverer MSF file format, which is based on SQLite3}
     gem.email = "angel@upenn.edu"
-    gem.homepage = "http://github.com/delagoya/thermo_msf"
+    gem.homepage = "http://github.com/itmat/thermo_msf"
     gem.authors = ["Angel Pizarro"]
-    gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
+    gem.add_development_dependency "shoulda", ">= 2.11.1"
+    gem.add_dependency "sequel", ">= 3.13.0"
+    gem.add_dependency "bindata", "~> 1.2.0"
+    gem.add_dependency "nokogiri", "~> 1.4.1"
+    gem.add_dependency "activesupport", ">= 2.3.8"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new

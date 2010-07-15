@@ -1,9 +1,50 @@
-= thermo_msf
+= Thermo MSF Parser
 
-Description goes here.
+A "parser" library for Thermo's ProteomeDiscoverer's MSF result file format. I put parser in quotes since MSF files are really SQLite3-based.
+
+
+== Usage
+
+Here is how to retrieve peptide information from an MSF file
+
+  # require 'rubygems' # if needed comment this out
+  require 'thermo_msf'
+  # open the MSF file for reading
+  msf = ThermoMSF::Base.new("path/to/msf/file/exampe.msf")
+  # Get the peptides table
+  peptides_table = msf.peptide
+  # What are your primary keys?
+  peptides_table.primary_key #=> [:ProcessingNodeNumber, :PeptideID]
+  # Get the first peptide in the DB to see what it is.
+  peptide = peptides_table.first
+  # print it out to see what is in there
+  puts peptide.to_yaml
+    # Outputs the following
+    # --- !ruby/object:ThermoMSF::Model::Peptide
+    # new: false
+    # values:
+    #   :Sequence: CLIIGAGPCGLR
+    #   :MatchedIonsCount: 13
+    #   :Annotation:
+    #   :SpectrumID: 96
+    #   :ConfidenceLevel: 1
+    #   :ProcessingNodeNumber: 2
+    #   :Hidden: false
+    #   :PeptideID: 2
+    #   :TotalIonsCount: 44
+
+"PeptideID" is an integer key value within this MSF file for a given peptide. "ProcessingNodeNumber" is
+(what I guess to be) the algorithm that produced this particular peptide match to a spectrum. Interegating the
+MSF file, we see that ProcessingNodeNumber is Sequest
+
+  # Query for the processing node from the
+  processing_node = msf.processing_node.filter(:ProcessingNodeNumber=> 2)
+  processing_node.friendly_name # => "SEQUEST"
+
+
 
 == Note on Patches/Pull Requests
- 
+
 * Fork the project.
 * Make your feature addition or bug fix.
 * Add tests for it. This is important so I don't break it in a
@@ -14,4 +55,5 @@ Description goes here.
 
 == Copyright
 
-Copyright (c) 2010 Angel Pizarro. See LICENSE for details.
+Copyright (c) 2010 ITMAT Bioinformatics Facility, School of Medicine, UPENN.
+See LICENSE for details.
