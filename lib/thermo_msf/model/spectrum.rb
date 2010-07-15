@@ -1,7 +1,7 @@
 module ThermoMSF
   module Model
     class Spectrum < Sequel::Model(:Spectra)
-        set_primary_key :UniqueSpectrumID
+      set_primary_key :UniqueSpectrumID
       # ruby style accessors
       def unique_spectrum_id
         self.UniqueSpectrumID
