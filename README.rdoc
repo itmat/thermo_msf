@@ -1,13 +1,17 @@
 = Thermo MSF Parser
 
-A "parser" library for Thermo's ProteomeDiscoverer's MSF result file format. I put parser in quotes since MSF files are really SQLite3-based.
+A library for accessing Thermo's ProteomeDiscoverer's MSF result file format. MSF files are SQLite3-based, so the this interface represents a simple API using Sequel that is directly translatable to the database's schema. Since this is a database, and Ruby's SQLite3 driver does not support read-onl connections, this API can both read and write to the file. This bears repeating:
+
+<font style="font-style: bold; color: #F00"><blink>THE CONNECTION CAN WRITE DATA, SO BE CAREFUL!!</blink></font>
+
+With that out of the way, here is how one uses this library
 
 
 == Usage
 
 Here is how to retrieve peptide information from an MSF file
 
-  # require 'rubygems' # if needed comment this out
+  # require 'rubygems' # uncomment if needed
   require 'thermo_msf'
   # open the MSF file for reading
   msf = ThermoMSF::Base.new("path/to/msf/file/exampe.msf")
@@ -41,6 +45,15 @@ MSF file, we see that ProcessingNodeNumber is Sequest
   processing_node = msf.processing_node.filter(:ProcessingNodeNumber=> 2)
   processing_node.friendly_name # => "SEQUEST"
 
+
+== Getting the Spectra Data
+
+MSF files store the spectra that were sent to the search engine, including all headers such as parent mass charge state, isolation windows, retention time (in minutes), etc.,but they are stored in slightly complex way. The Spectrum object/table has a \#spectrum column that stores the spectrum's annotation and data peaks in an custom XML format. Furthermore, that XML file is compressed with zlib. Here is how to use this library to expand the XML:
+
+  sp = Spectrum.first
+  xml =  ThermoMSF::ZipSpectrum.read(sp.spectrum).spectrum_xml
+
+Not great, but it'll do for now, until I get a chance to write a better set of methods to get at the data directly from the spectrum class.
 
 
 == Note on Patches/Pull Requests
