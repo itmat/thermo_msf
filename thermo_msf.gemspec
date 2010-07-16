@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Angel Pizarro"]
-  s.date = %q{2010-07-15}
+  s.date = %q{2010-07-16}
   s.description = %q{A parser for Thermo Finnegan's Proteome Discoverer MSF file format, which is based on SQLite3}
   s.email = %q{angel@upenn.edu}
   s.extra_rdoc_files = [
@@ -79,7 +79,8 @@ Gem::Specification.new do |s|
      "lib/thermo_msf/model/workflow_message.rb",
      "lib/thermo_msf/zip_spectrum.rb",
      "test/helper.rb",
-     "test/test_thermo_msf.rb"
+     "test/test_thermo_msf.rb",
+     "thermo_msf.gemspec"
   ]
   s.homepage = %q{http://github.com/itmat/thermo_msf}
   s.rdoc_options = ["--charset=UTF-8"]

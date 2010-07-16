@@ -1,6 +1,6 @@
 module ThermoMSF
   module Model
-    class FastumFile < Sequel::Model(:FastaFiles)
+    class FastaFile < Sequel::Model(:FastaFiles)
         set_primary_key :FastaFileID
       # ruby style accessors
       def fasta_file_id

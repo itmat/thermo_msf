@@ -1,0 +1,17 @@
+require 'thermo_msf/model'
+
+module ThermoMSF
+  class Base
+    attr_reader :msf, :fname
+    def initialize(msf_filepath)
+      @fname = msf_filepath
+      @DB = @msf = Sequel.sqlite(msf_filepath)
+    end
+    # Access the models
+    <% @models.each do |m| %>
+    def <%= m.underscore %>
+      ThermoMSF::Model::<%= m.camelize %>
+    end
+    <% end %>
+  end
+end

@@ -41,20 +41,20 @@ module ThermoMSF
     def false_discovery_rate
       ThermoMSF::Model::FalseDiscoveryRate
     end
-    def fastum_file
-      ThermoMSF::Model::FastumFile
+    def fasta_file
+      ThermoMSF::Model::FastaFile
     end
-    def fastum_file_protein_annotation
-      ThermoMSF::Model::FastumFileProteinAnnotation
+    def fasta_file_protein_annotation
+      ThermoMSF::Model::FastaFileProteinAnnotation
     end
     def file_info
       ThermoMSF::Model::FileInfo
     end
-    def mas_peak_relation
-      ThermoMSF::Model::MasPeakRelation
+    def mass_peak_relation
+      ThermoMSF::Model::MassPeakRelation
     end
-    def mas_peak
-      ThermoMSF::Model::MasPeak
+    def mass_peak
+      ThermoMSF::Model::MassPeak
     end
     def peptide_score
       ThermoMSF::Model::PeptideScore

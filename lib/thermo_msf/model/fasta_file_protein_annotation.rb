@@ -1,6 +1,6 @@
 module ThermoMSF
   module Model
-    class FastumFileProteinAnnotation < Sequel::Model(:FastaFilesProteinAnnotations)
+    class FastaFileProteinAnnotation < Sequel::Model(:FastaFilesProteinAnnotations)
         set_primary_key [:FastaFileID, :ProteinAnnotationID]
       # ruby style accessors
       def fasta_file_id

@@ -1,6 +1,6 @@
 module ThermoMSF
   module Model
-    class MasPeakRelation < Sequel::Model(:MassPeakRelations)
+    class MassPeakRelation < Sequel::Model(:MassPeakRelations)
         set_primary_key [:MassPeakID, :RelatedMassPeakID]
       # ruby style accessors
       def mass_peak_id

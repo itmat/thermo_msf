@@ -1,0 +1,18 @@
+module ThermoMSF
+  module Model
+    class <%= @cn %> < Sequel::Model(:<%= @tn %>)
+      <% if @pk.length > 1 %>
+        set_primary_key [<%= @pk.map {|k| ":#{k}" }.join(", ") %>]
+      <% else %>
+        set_primary_key :<%= @pk %>
+      <% end %>
+      # ruby style accessors
+      <% @tcls.each do |tc|  %>
+      def <%= tc.to_s.underscore %>
+        self.<%= tc  %>
+      end
+      <% end %>
+      # associations
+    end
+  end
+end

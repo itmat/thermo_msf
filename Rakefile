@@ -55,3 +55,8 @@ Rake::RDocTask.new do |rdoc|
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
+
+desc "Generate the model class files from the example.msf file and templates"
+task :generate_models do
+  system "ruby template/schema_query.rb"
+end
