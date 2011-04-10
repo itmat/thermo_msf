@@ -12,7 +12,7 @@ begin
     gem.authors = ["Angel Pizarro"]
     gem.add_development_dependency "shoulda", ">= 2.11.1"
     gem.add_dependency "sequel", ">= 3.13.0"
-    gem.add_dependency "bindata", "~> 1.2.0"
+    gem.add_dependency "bindata", "~> 1.3"
     gem.add_dependency "nokogiri", "~> 1.4.1"
     gem.add_dependency "activesupport", ">= 2.3.8"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
