@@ -13,6 +13,9 @@ module ThermoMSF
       end
       <% end %>
       # associations
+      <% @assocs.each do |a| %>
+      many_to_one <%= a[0] %>, :key => :<%= a[1],  %>
+      <% end %>
     end
   end
 end

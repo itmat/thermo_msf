@@ -19,6 +19,9 @@ module ThermoMSF
         self.ScoreValue
       end
       # associations
+      many_to_one peptide, :key => :PeptideID
+      many_to_one score, :key => :ScoreID
+      many_to_one processing_node, :key => :ProcessingNodeID
     end
   end
 end

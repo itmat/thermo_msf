@@ -22,6 +22,8 @@ module ThermoMSF
         self.Message
       end
       # associations
+      many_to_one message, :key => :MessageID
+      many_to_one processing_node, :key => :ProcessingNodeID
     end
   end
 end

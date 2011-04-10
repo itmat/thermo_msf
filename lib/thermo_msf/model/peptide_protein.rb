@@ -13,6 +13,8 @@ module ThermoMSF
         self.ProteinID
       end
       # associations
+      many_to_one peptide, :key => [:ProcessingNodeNumber,:PeptideID]
+      many_to_one protein, :key => :ProteinID 
     end
   end
 end

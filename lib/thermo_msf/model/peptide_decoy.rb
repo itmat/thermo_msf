@@ -25,6 +25,8 @@ module ThermoMSF
         self.Sequence
       end
       # associations
+      many_to_one peptide, :key => :PeptideID
+      many_to_one spectrum, :key => :SpectrumID
     end
   end
 end

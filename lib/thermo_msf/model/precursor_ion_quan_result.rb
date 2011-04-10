@@ -22,6 +22,8 @@ module ThermoMSF
         self.RetentionTime
       end
       # associations
+      many_to_one quan_channel, :key => :QuanChannelID
+      many_to_one quan_result, :key => :QuanResultID
     end
   end
 end

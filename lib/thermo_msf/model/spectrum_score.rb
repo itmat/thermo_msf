@@ -16,6 +16,8 @@ module ThermoMSF
         self.Score
       end
       # associations
+      many_to_one spectrum, :key => :SpectrumID
+      many_to_one score, :key => :ScoreID
     end
   end
 end

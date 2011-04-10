@@ -31,6 +31,8 @@ module ThermoMSF
         self.IsMainScore
       end
       # associations
+      many_to_one processing_node, :key => :ProcessingNodeID
+      many_to_one score, :key => :ScoreID
     end
   end
 end

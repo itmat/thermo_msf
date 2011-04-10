@@ -34,6 +34,7 @@ module ThermoMSF
         self.EndPeakIntensity
       end
       # associations
+      many_to_one spectrum, :key => :SpectrumID
     end
   end
 end

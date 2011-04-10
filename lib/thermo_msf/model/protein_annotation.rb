@@ -19,6 +19,8 @@ module ThermoMSF
         self.TaxonomyID
       end
       # associations
+      many_to_one protein, :key => :ProteinID
+      many_to_one taxonomy, :key => :TaxonomyID
     end
   end
 end

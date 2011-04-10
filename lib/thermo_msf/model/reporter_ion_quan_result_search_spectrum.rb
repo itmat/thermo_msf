@@ -13,6 +13,8 @@ module ThermoMSF
         self.SearchSpectrumID
       end
       # associations
+      many_to_one spectrum, :key => :SpectrumID
+      many_to_one search_spectrum, :key => :SearchSpectrumID
     end
   end
 end

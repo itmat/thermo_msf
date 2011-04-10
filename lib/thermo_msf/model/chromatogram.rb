@@ -13,6 +13,7 @@ module ThermoMSF
         self.Chromatogram
       end
       # associations
+      many_to_one file, :key => :FileID
     end
   end
 end

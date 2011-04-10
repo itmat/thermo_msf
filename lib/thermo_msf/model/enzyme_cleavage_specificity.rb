@@ -10,6 +10,7 @@ module ThermoMSF
         self.Specificity
       end
       # associations
+      many_to_one enzyme, :key => :EnzymeID
     end
   end
 end

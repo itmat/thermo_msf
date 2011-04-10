@@ -13,6 +13,8 @@ module ThermoMSF
         self.FieldValue
       end
       # associations
+      many_to_one field, :key => :FieldID
+      many_to_one spectrum, :key => :SpectrumID
     end
   end
 end

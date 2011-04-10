@@ -10,6 +10,8 @@ module ThermoMSF
         self.QuanSpectrumID
       end
       # associations
+      many_to_one quan_result, :key => :QuanResultID
+      many_to_one quan_spectrum, :key => :QuanSpectrumID
     end
   end
 end

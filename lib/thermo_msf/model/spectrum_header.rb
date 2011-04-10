@@ -40,6 +40,10 @@ module ThermoMSF
         self.UniqueSpectrumID
       end
       # associations
+      many_to_one spectrum, :key => :SpectrumID
+      many_to_one mass_peak, :key => :MassPeakID
+      many_to_one scan_event, :key => :ScanEventID
+      many_to_one unique_spectrum, :key => :UniqueSpectrumID
     end
   end
 end

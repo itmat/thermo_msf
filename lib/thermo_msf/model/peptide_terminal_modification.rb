@@ -13,6 +13,8 @@ module ThermoMSF
         self.TerminalModificationID
       end
       # associations
+      many_to_one peptide, :key => :PeptideID
+      many_to_one terminal_modification, :key => :TerminalModificationID
     end
   end
 end

@@ -10,6 +10,7 @@ module ThermoMSF
         self.SpectrumID
       end
       # associations
+      many_to_one spectrum, :key => :SpectrumID
     end
   end
 end

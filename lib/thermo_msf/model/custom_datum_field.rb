@@ -40,6 +40,7 @@ module ThermoMSF
         self.Format
       end
       # associations
+      many_to_one field, :key => :FieldID
     end
   end
 end

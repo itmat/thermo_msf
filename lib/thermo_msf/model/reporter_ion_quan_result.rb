@@ -19,6 +19,8 @@ module ThermoMSF
         self.Height
       end
       # associations
+      many_to_one quan_channel, :key => :QuanChannelID
+      many_to_one spectrum, :key => :SpectrumID
     end
   end
 end

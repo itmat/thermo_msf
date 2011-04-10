@@ -6,6 +6,7 @@ require "active_support"
 require "yaml"
 
 BASEPATH = File.dirname(__FILE__)
+require "#{BASEPATH}/model_references"
 
 DB = Sequel.sqlite("#{BASEPATH}/../test/example.msf")
 
@@ -24,7 +25,6 @@ models.puts "module ThermoMSF\n  module Model\n"
 DB.tables.map{|e| e.to_s}.sort.each do |tn|
   puts "#{tn} => #{tn.underscore}"
   cn = tn.underscore.split("_").map do |x|
-    puts "#{x} => #{x.singularize}"
     x.singularize
   end.join("_").camelize
   # add class name to base class models context
@@ -35,14 +35,19 @@ DB.tables.map{|e| e.to_s}.sort.each do |tn|
   ctx = { :tn => tn,
           :cn => cn,
           :pk => [],
-          :tcls =>[]}
+          :tcls =>[],
+          :assocs => []}
   DB.schema(tn).each do |cl|
-    tmpcl = cl[0]
+    tmpcl = cl[0].to_s
     ctx[:tcls] << tmpcl
+    # is this column a primary key?
     if cl[1][:primary_key]
       ctx[:pk] << tmpcl
     end
   end
+  # There are a lot of special cases and difficult to automate FK references in MSF files
+  # Just use the precached file of refs
+  model_references[tn]
   # output the model class file
   o = File.open("#{BASEPATH}/../lib/thermo_msf/model/#{cn.underscore}.rb","w")
   o.puts(class_template.evaluate(ctx))

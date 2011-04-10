@@ -16,6 +16,8 @@ module ThermoMSF
         self.Position
       end
       # associations
+      many_to_one peptide, :key => :PeptideID
+      many_to_one amino_acid_modification, :key => :AminoAcidModificationID
     end
   end
 end

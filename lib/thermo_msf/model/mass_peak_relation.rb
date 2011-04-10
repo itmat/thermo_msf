@@ -10,6 +10,8 @@ module ThermoMSF
         self.RelatedMassPeakID
       end
       # associations
+      many_to_one mass_peak, :key => :MassPeakID
+      many_to_one related_mass_peak, :key => :RelatedMassPeakID
     end
   end
 end

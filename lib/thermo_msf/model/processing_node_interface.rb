@@ -13,6 +13,7 @@ module ThermoMSF
         self.InterfaceName
       end
       # associations
+      many_to_one processing_node, :key => :ProcessingNodeID
     end
   end
 end

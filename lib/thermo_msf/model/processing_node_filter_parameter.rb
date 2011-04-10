@@ -22,6 +22,8 @@ module ThermoMSF
         self.FilterParameterValue
       end
       # associations
+      many_to_one filter_module_type, :key => :FilterModuleTypeID
+      many_to_one processing_node, :key => :ProcessingNodeID
     end
   end
 end

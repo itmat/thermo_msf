@@ -13,6 +13,7 @@ module ThermoMSF
         self.SpectrumHashCode
       end
       # associations
+      many_to_one unique_spectrum, :key => :UniqueSpectrumID
     end
   end
 end

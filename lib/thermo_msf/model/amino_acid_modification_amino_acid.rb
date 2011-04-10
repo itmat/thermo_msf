@@ -10,6 +10,8 @@ module ThermoMSF
         self.AminoAcidID
       end
       # associations
+      many_to_one amino_acid_modification, :key => :AminoAcidModificationID
+      many_to_one amino_acid, :key => :AminoAcidID
     end
   end
 end

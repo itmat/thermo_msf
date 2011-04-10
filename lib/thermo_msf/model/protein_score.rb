@@ -19,6 +19,8 @@ module ThermoMSF
         self.Coverage
       end
       # associations
+      many_to_one protein, :key => :ProteinID
+      many_to_one protein_identification_group, :key => :ProteinIdentificationGroupID
     end
   end
 end

@@ -22,6 +22,7 @@ module ThermoMSF
         self.FileType
       end
       # associations
+      many_to_one file, :key => :FileID
     end
   end
 end

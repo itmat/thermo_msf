@@ -19,6 +19,8 @@ module ThermoMSF
         self.RightNodeIndex
       end
       # associations
+      many_to_one taxonomy, :key => :TaxonomyID
+      many_to_one parent_taxonomy, :key => :ParentTaxonomyID
     end
   end
 end

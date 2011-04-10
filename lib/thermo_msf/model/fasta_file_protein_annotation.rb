@@ -10,6 +10,8 @@ module ThermoMSF
         self.ProteinAnnotationID
       end
       # associations
+      many_to_one fasta_file, :key => :FastaFileID
+      many_to_one protein_annotation, :key => :ProteinAnnotationID
     end
   end
 end

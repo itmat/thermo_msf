@@ -13,6 +13,7 @@ module ThermoMSF
         self.NameCategory
       end
       # associations
+      many_to_one taxonomy, :key => :TaxonomyID
     end
   end
 end

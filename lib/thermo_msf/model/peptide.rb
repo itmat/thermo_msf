@@ -31,6 +31,7 @@ module ThermoMSF
         self.Annotation
       end
       # associations
+      many_to_one spectrum, :key => :SpectrumID
     end
   end
 end
